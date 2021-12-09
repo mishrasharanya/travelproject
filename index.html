@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            html { 
+            background: url("https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg") no-repeat center center fixed; 
+            
+            background-size: cover;
+            }
+            .menu{
+                position:fixed;
+                top: 0;
+                width: 100%;
+                overflow: hidden;
+            }
+            .Button {
+                background-color:#ebae5f;
+                border: none;
+                color:black;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+}
+            
+        </style>
+    </head>
+    <body>
+    
+        <div id="container"></div>
+        <script type="text/babel">
+          class SignUpForm extends React.Component{
+                //constructor:creating obj and initialising it
+                    constructor(props){
+                        super(props);
+                        this.state={
+                            value1:" ",
+                            value2:" ",
+                            value3:" ",
+                            value4:" ",
+                            value5:" "}
+                        this.handleChange = this.handleChange.bind(this)
+                        this.handleSubmit = this.handleSubmit.bind(this)
+
+                    }
+                    //outside constructor is methods are defined
+                    handleSubmit(event){
+                        alert("Name submitted is:"+this.state.value1+this.state.value2)
+                    }
+                    handleChange(event){
+                            this.setState({ [event.target.name]: event.target.value });
+                    }
+                
+                    render(){
+                        var letterStyle = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"monospace",
+                            backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:29,
+                            padding: 20,
+                            margin:10,
+                            textAlign:"center"};
+                            
+                        var letterStyle2 = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"monospace",
+                            fontSize:29,
+                            padding: 20,
+                            margin:10,
+                            };
+                    return(
+                        <div >
+                            <div style={letterStyle2} className="menu">
+                                <h1>NAMASTE INDIA</h1>
+                            </div>
+                            <hr/>
+                            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                            <center><div style={letterStyle}>
+                        <form action="/sign_up" method="POST">
+                            <center><label>SIGNUP</label></center><br/>
+                            <center><strong><label>First Name :</label></strong>
+                            <input type="text" name="value1"  placeholder="Enter First Name" value={this.state.value1} onChange = {this.handleChange} /></center>
+                            <br/>
+                            <center><strong><label>Last Name :</label></strong>
+                            <input type="text" name="value2" placeholder="Enter Last Name" value={this.state.value2} onChange = {this.handleChange}/></center>
+                            <br/>
+                            <center><strong><label>Number :</label></strong>
+                            <input type="text" name="value3" placeholder="Enter Number" value={this.state.value3} onChange = {this.handleChange}/></center>
+                            <br/>
+                            <center><strong><label>Email Address :</label></strong>
+                            <input type="email" name="value4" placeholder="Enter Email" value={this.state.value4} onChange = {this.handleChange}/></center>
+                            <br/>
+                            <center><strong><label>Password :</label></strong>
+                            <input type="Password" name="value5"  value={this.state.value5} onChange = {this.handleChange}/></center>
+                            <br/>
+                            <center><strong><input type="submit" value="Submit" className="Button"/></strong></center>
+                        </form>
+                            </div></center>
+                        </div>
+                    );
+                    }
+                }
+                ReactDOM.render(
+                <SignUpForm/>,document.querySelector('#container')
+            )
+        </script>
+    </body>
+</html>

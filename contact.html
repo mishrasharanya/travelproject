@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            html { 
+                background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg');
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+            header{
+                height:100px;
+                width:100px;
+                z-index:20;
+            }
+            .navbar {
+                overflow: hidden;
+                background-color: rgba(70, 233, 233, 0.8);;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .logo{
+                width:30%;
+                float:left;
+                line-height:100px;
+            }
+            .logo a{
+                text-decoration:none;
+                font-size:30px;
+                font-family: bignoodletitling;
+                color:black;
+                letter-spacing: 5px;
+
+            }
+            nav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 40px 20px;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            nav a:hover {
+                background: #ddd;
+                color: black;
+            }
+            .names{
+                color:"black";
+                display:"inline-block";
+                font-family:"monospace";
+                font-size:29;
+                padding: 20;
+                margin:10;
+                text-align:"center";
+            }
+           
+           
+           .banner h2{
+               padding-top:8%;
+               font-size:80px;
+               font-family:bignoodletitling;
+               color:black;
+
+           }
+           
+            .block {
+                position: relative;
+                max-width: 400px; 
+                margin: 0 auto; 
+                    }
+            .block .content {
+                position: absolute; 
+                bottom: 0; 
+                
+                background: rgba(0, 0, 0, 0.5); 
+                color: #f1f1f1; 
+                width: 90%; 
+                padding: 20px; 
+                
+            }
+            .block:hover{
+                transform:rotateY(180deg);
+            }
+            .block:hover .content h1{
+                visibility:hidden
+            }
+            .block{
+                
+                position: relative;
+                width: 100%;
+                height: 40%;
+                text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                
+            }
+            .back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                background-color: "grey";
+                color: white;
+                transform: rotateY(180deg);
+            }
+           
+           
+        </style>
+    </head>
+    <body>
+        <header>
+            
+            <div class="navbar">
+                <div class="logo">
+                    <a href="main">NAMASTE INDIA</a>
+                </div>
+                <nav>
+                    <a href="places">PLACES</a>
+                    <a href="cities">HOTEL BOOKING</a>
+                    <a href="packages">TOUR PACKAGES</a>
+                    <a href="contact">CONTACT</a>
+                </nav>
+                
+            </div>
+        </header>
+        
+            
+    
+			<center><div id="con"></div></center>
+       
+       
+        <script type="text/babel">
+
+            class Names extends React.Component{
+                render(){
+                    var letterStyle = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"monospace",
+                            backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:18,
+                            //padding: 5,
+                            margin:15,
+                            textAlign:"center"};
+					var letterStyle2 = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"monospace",
+                            //backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:18,
+                            //padding: 5,
+                            margin:15,
+                            textAlign:"center"};
+                    return(
+                        <div style={letterStyle2} className="block">
+                                <div className="front">
+                                    <img src={this.props.src} alt={this.props.alt} width="400" height="300"/>
+                                    <div className="content">
+                                        <h1>{this.props.desc}</h1>
+                                    </div>
+                                </div>
+                                <div className="back">
+                                    <h1>{this.props.desc}</h1>
+                                    <p>{this.props.d}</p>
+                                </div>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <div className="Names">
+                    <Names src="sharanya.jpeg" alt="Sharanya Mishra" desc="SHARANYA MISHRA" d="SHARANYA MISHRA" d="A very imaginative person who will style your tour perfectly.Contact Number:8876543210 Email: sharanyamishra@gmail.com"/>
+                    <Names src="shreeya.jpeg" alt="Shreeya Rajan" desc="SHREEYA RAJAN" d="A little kid who knows how to get stuff done. Contact Number:9998765432 Email: shreeyarajan@gmail.com"/>
+                    <Names src="shreya.jpeg" alt="Shreya Ajith" desc="SHREYA AJITH" d="A talented person who can solve any of your issues. Contact Number:9876543210 Email: shreyaajith@gmail.com"/>
+                    
+                </div>,document.querySelector("#con")
+            );
+                
+            
+    </script>
+    </body>
+</html>

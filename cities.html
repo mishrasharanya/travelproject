@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <style>
+        html {
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed;
+
+            background-size: cover;
+        }
+        .banner h5{
+               padding-top:2%;
+               font-size:50px;
+               font-family:bignoodletitling;
+               color:white;
+               position:fixed;
+
+           }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(70, 233, 233, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+        }
+        
+
+        .logo {
+            width: 30%;
+            float: left;
+            line-height: 100px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 30px;
+            font-family: bignoodletitling;
+            color: #292525;
+            letter-spacing: 5px;
+
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #3d3333;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .content {
+            position: relative;
+            width: 280px;
+            height: 210px;
+            border-radius: 50;
+            padding-top: 180px;
+            border-style:strong;
+            /*padding-left: 150px;*/
+        }
+
+        .images {
+            border:aqua;
+            opacity: 1;
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .overlay {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            /*
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)*/
+        }
+
+        .content:hover .images {
+            opacity: 0.3;
+        }
+
+        .content:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #00eb9c;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .column {
+            display: inline block;
+            padding: 0.5em;
+            display: block;
+            /*width: calc(33.333% - 0.5em);*/
+            width: "280";
+            height: "210";
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <div id="content"></div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="main">NAMASTE INDIA</a>
+        </div>
+        <nav>
+            <a href="places">PLACES</a>
+            <a href="cities">HOTEL BOOKING</a>
+            <a href="packages">TOUR PACKAGES</a>
+            <a href="contact">CONTACT</a>
+        </nav>
+    </div>
+    <script type="text/babel">
+
+
+
+        class MyComponent extends React.Component {
+
+
+            render() {
+                {
+                    var letterStyle = {
+                        color: "rgba(103, 2, 60 , 0.8)",
+                        display: "inline-block",
+                        fontFamily: "Algerian",
+                        borderStyle: "solid",
+                        //backgroundColor: "rgba(70, 233, 233, 0.8)",
+
+                        fontSize: 25,
+                        toppadding: 100,
+                        position: 'absolute',
+                        top: 50,
+                        left: 550,
+                        //marginbottom: 30,
+                        textAlign: "center",
+
+
+
+                    }
+                    var openInNewTab = (url) => {
+                        const newWindow = window.open(url, '_self', 'noopener,noreferrer')
+                        if (newWindow) newWindow.opener = null
+                    }
+                    return (
+                        <div>
+                            <div className="banner">
+                                    <h5>HOTEL BOOKING</h5>
+                            </div>
+                            <br/><br/>
+                            <div class="container">
+                                <div class="content">
+                                    <img src="https://www.remotelands.com/travelogues/app/uploads/2018/09/Meghalaya-header.jpg" alt="MEGHALAYA" class='images' onClick={() => openInNewTab('meghhotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">MEGHALAYA</div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <img src="https://assets.traveltriangle.com/blog/wp-content/uploads/2016/07/Best-places-to-visit-in-Karnataka.jpg" alt="KARNATAKA" class='images' onClick={() => openInNewTab('karnahotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">KARNATAKA</div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <img src="https://media.timeout.com/images/105240186/750/422/image.jpg" alt="GOA" class='images' onClick={() => openInNewTab('goahotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">GOA</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="content">
+                                    <img src="https://www.wallpapertip.com/wmimgs/41-417511_manali-wallpaper.jpg" alt="HIMACHAL PRADESH" class='images' onClick={() => openInNewTab('hphotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">HIMACHAL PRADESH</div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <img src="https://i.ndtvimg.com/i/2018-01/up-divas_650x400_61516803222.jpg" alt="UTTAR PRADESH" class='images' onClick={() => openInNewTab('uphotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">UTTAR PRADESH</div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <img src="https://www.tourmyindia.com/states/jammu-kashmir/image/jummu-kashmir-banner.jpg" alt="JAMMU KASHMIR" class='images' onClick={() => openInNewTab('jkhotel')} width="400" height="300"></img>
+                                    <div class='overlay'>
+                                        <div class="text">JAMMU KASHMIR</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div >
+
+
+
+                    );
+                }
+            }
+        }
+        function xyz() {
+            alert("vcbjsd");
+        }
+        ReactDOM.render(
+            <MyComponent />, document.querySelector('#container')
+        )
+    //class content extends React.Component
+    </script>
+
+
+</body>
+
+</html>

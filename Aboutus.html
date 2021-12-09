@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            html { 
+            background: url("https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg") no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            }
+			#one{
+			margin-top: 20px;
+			margin-bottom: 10px;
+			margin-right: 200px;
+			}
+			.bookbutton1 {
+			font-size: 14px;
+			background-color: #a0c800;
+			padding: 12px;
+			position: absolute;
+			top:80px;
+			right: 50px;
+			text-align: center;
+			color: white;
+			font-family: sans-serif;
+			border-radius: 3px;
+			}
+			.bookbutton2 {
+			font-size: 14px;
+			background-color: #a0c800;
+			padding: 12px;
+			position: absolute;
+			top:80px;
+			right:150px;
+			text-align: center;
+			color: white;
+			font-family: sans-serif;
+			border-radius: 3px;
+			}
+        </style>
+    </head>
+    <body>
+		<div id="container"></div>
+        <script type="text/babel">
+          class Aboutus extends React.Component{
+			render(){
+                     var letterStyle = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"brushscript",
+                            backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:29,
+                            padding: 20,
+                            margin:10,
+                            textAlign:"center"};
+					var openInNewTab = (url) => {
+						const newWindow = window.open(url, '_self', 'noopener,noreferrer')
+						if (newWindow) newWindow.opener = null
+                    }	
+                    return(
+                        <div>
+                            <div style={letterStyle}>
+                                <h2>ABOUT US</h2>
+								
+							</div>
+							<center><div style={letterStyle}>
+							<div id="one">
+							<button class="bookbutton1" onClick={() => openInNewTab('index')} > Sign Up</button>
+							<button class="bookbutton2" onClick={() => openInNewTab('logreact')}> Login</button>
+							</div>
+							<p>Tired of the daily routine and want to travel across India? 
+							Don't worry, we got you covered.</p>
+							<p>
+							This site will help you make bookings to hotel and book a fight
+							to reach your destination. Not only that it'll make sure 
+							that you find the most suitable tour package.
+							</p>
+							</div></center>
+							</div>
+							
+						);
+                    }
+                }
+                ReactDOM.render(
+                <Aboutus/>,document.querySelector('#container')
+            )
