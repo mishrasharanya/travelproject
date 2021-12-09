@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8">
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            html { 
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            }
+			#one{
+			margin-top: 20px;
+			margin-bottom: 10px;
+			margin-right: 200px;
+			}
+			header{
+                height:100px;
+                width:100px;
+                z-index:20;
+            }
+            .navbar {
+                overflow: hidden;
+                background-color: rgba(70, 233, 233, 0.8);;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .logo{
+                width:30%;
+                float:left;
+                line-height:100px;
+            }
+            .logo a{
+                text-decoration:none;
+                font-size:30px;
+                font-family: bignoodletitling;
+                color:black;
+                letter-spacing: 5px;
+
+            }
+            nav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 40px 20px;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            nav a:hover {
+                background: #ddd;
+                color: black;
+            }
+			
+        </style>
+    </head>
+    <body>
+		<header>
+            
+            <div class="navbar">
+                <div class="logo">
+                    <a href="main">NAMASTE INDIA</a>
+                </div>
+                <nav>
+                    <a href="places">PLACES</a>
+                    <a href="cities">HOTEL BOOKING</a>
+                    <a href="packages">TOUR PACKAGES</a>
+                    <a href="contact">CONTACT</a>
+                </nav>
+                
+            </div>
+        </header>
+		
+		<div id="container"></div>
+        <script type="text/babel">
+		
+          class Aboutus extends React.Component{
+			render(){
+                     var letterStyle = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"brushscript",
+                            backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:29,
+                            padding: 20,
+                            margin:150,
+                            textAlign:"center"};
+						
+                    return(
+                        <div>
+                 
+							<center><div style={letterStyle}>
+                                <h3>ABOUT US</h3>
+							<p>Tired of the daily routine and want to travel across India? 
+							Don't worry, we got you covered.</p>
+							<p>
+							This site will help you make bookings to hotel and book a fight
+							to reach your destination. Not only that it'll make sure 
+							that you find the most suitable tour package.
+							</p>
+							</div></center>
+							</div>
+							
+						);
+                    }
+                }
+                ReactDOM.render(
+                <Aboutus/>,document.querySelector('#container')
+            )

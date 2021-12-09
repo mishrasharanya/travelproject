@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+        html {
+            background: url("https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg") no-repeat center center fixed;
+
+            background-size: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="container"></div>
+    <script type="text/babel">
+        class LoginForm extends React.Component {
+            //constructor:creating obj and initialising it
+            constructor(props) {
+                super(props);
+                this.state = {
+                    email: " ",
+                    password: " "
+                }
+                //this.handleChange = this.handleChange.bind(this)
+                //this.handleSubmit = this.handleSubmit.bind(this)
+
+            }
+
+
+            render() {
+                var letterStyle = {
+                    color: "black",
+                    display: "inline-block",
+                    fontFamily: "monospace",
+
+                    backgroundColor: "rgba(70, 233, 233, 0.8)",
+
+                    fontSize: 29,
+                    padding: 20,
+                    margin: 10,
+                    textAlign: "center"
+                };
+                return (
+                    <div>
+                        <div style={letterStyle}>
+                            <h1 >LOG IN</h1>
+                        </div>
+                        <hr />
+                        <center><div style={letterStyle}>
+                            <form action="/login" method="POST">
+
+                                <center><label>Username : </label>
+                                    <input type="email" placeholder="Enter Email" name="username" required name="email" /></center><br />
+                                <center><label>Password : </label>
+                                    <input type="password" placeholder="Enter Password" name="password" required /></center><br /><br />
+                                <center>
+                                    <button type="submit" class="b">Login</button><br /><br /></center>
+                            </form>
+                        </div>
+                        </center>
+                    </div>
+                );
+            }
+        }
+        ReactDOM.render(
+            <LoginForm />, document.querySelector('#container')
+        )
+    </script>
+</body>
+
+</html>
