@@ -1,0 +1,212 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script> 
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <style>
+            html { 
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed; 
+            background-size: cover;
+            }
+            header{
+                height:100px;
+                width:100px;
+                z-index:20;
+            }
+            .navbar {
+                overflow: hidden;
+                background-color: rgba(70, 233, 233, 0.8);;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+            .logo{
+                width:30%;
+                float:left;
+                line-height:100px;
+            }
+            .logo a{
+                text-decoration:none;
+                font-size:30px;
+                font-family: bignoodletitling;
+                color:black;
+                letter-spacing: 5px;
+
+            }
+            nav a {
+                float: left;
+                display: block;
+                color: black;
+                text-align: center;
+                padding: 40px 20px;
+                text-decoration: none;
+                font-size: 20px;
+            }
+
+            nav a:hover {
+                background: #ddd;
+                color: black;
+            }
+            .places{
+                color:"black";
+                display:"inline-block";
+                font-family:"monospace";
+                background-color:rgba(70, 233, 233, 0.8);
+                font-size:29;
+                padding: 20;
+                margin:10;
+                text-align:"center";
+                    }
+           .banner{
+                width:100%;
+                height:100%;
+                position:fixed;
+                top:100px;
+                background: url(bg5.png) no-repeat center center fixed;
+                -webkit-background-size:cover ;
+                background-size:cover;
+                background-position: center center;
+           }
+           .banner h2{
+               padding-top:0%;
+               font-size:80px;
+               font-family:bignoodletitling;
+               color:white;
+
+           }
+           .content-area{
+               width:100%;
+               position:relative;
+               top:450px;
+               background:rgba(231, 127, 95, 0.795);
+               height: 1500px;
+               z-index:0;
+           }
+           
+            .block {
+                position: relative;
+                max-width: 400px; 
+                margin: 0 auto; 
+                    }
+            .block .content {
+                position: absolute; 
+                bottom: 0; 
+                
+                background: rgba(0, 0, 0, 0.5); 
+                color: #f1f1f1; 
+                width: 90%; 
+                padding: 20px; 
+                
+            }
+            .block:hover{
+                transform:rotateY(180deg);
+            }
+            .block:hover .content h1{
+                visibility:hidden
+            }
+            .block{
+                
+                position: relative;
+                width: 100%;
+                height: 50%;
+                text-align: center;
+                transition: transform 0.6s;
+                transform-style: preserve-3d;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                
+            }
+            .back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                background-color: "grey";
+                color: white;
+                transform: rotateY(180deg);
+            }
+           
+           
+        </style>
+    </head>
+    <body>
+        <header>
+            
+            <div class="navbar">
+                <div class="logo">
+                    <a href="main">NAMASTE INDIA</a>
+                </div>
+                <nav>
+                    <a href="places">PLACES</a>
+                    <a href="cities">HOTEL BOOKING</a>
+                    <a href="packages">TOUR PACKAGES</a>
+                    <a href="contact">CONTACT</a>
+                </nav>
+                
+            </div>
+        </header>
+        
+            
+        <div class="banner">
+            <h2>PLACES</h2>
+        </div>
+        <div class="content-area">
+            <center><div id="con"></div></center>
+        </div>
+        <script type="text/babel">
+
+            class Place extends React.Component{
+                render(){
+                    var letterStyle = {color:"black",
+                            display:"inline-block",
+                            fontFamily:"monospace",
+                            backgroundColor:"rgba(70, 233, 233, 0.8)",
+                            fontSize:18,
+                            //padding: 5,
+                            margin:15,
+                            textAlign:"center"};
+                    return(
+                        <div style={letterStyle} className="block">
+                                <div className="front">
+                                    <img src={this.props.src} alt={this.props.alt} width="400" height="300"/>
+                                    <div className="content">
+                                        <h1>{this.props.desc}</h1>
+                                    </div>
+                                </div>
+                                <div className="back">
+                                    <h1>{this.props.desc}</h1>
+                                    <p>{this.props.d}</p>
+                                </div>
+                        </div>
+                    );
+                }
+            }
+            ReactDOM.render(
+                <div className="Place">
+                    <Place src="https://www.remotelands.com/travelogues/app/uploads/2018/09/Meghalaya-header.jpg" alt="a" desc="Meghalaya" 
+                    d="One of the seven sisters of the country.Meghalaya tourism also emphasizes on adventure tourism which offers a plethora of activities letting the tourists get a holistic travel experience in this beautiful northeastern state of India"/>
+
+                    <Place src="https://www.wallpapertip.com/wmimgs/41-417511_manali-wallpaper.jpg" alt="b" desc="Manali"
+                    d="A gift of the Himalayas to the world.It is a rustic enclave known for its cool climate and snow capped mountains.offering respite to tourists escaping scorching heat of the plains."/>
+                    
+                    <Place src="https://media.timeout.com/images/105240186/750/422/image.jpg" alt="b" desc="Goa"
+                    d="The small coastal state of GOA is home to alluring beaches, bustling nightlife, and amazing food along with a host of tourist attractions and exciting things to do. "/>
+                    
+                    <Place src="https://www.karnatakatourism.org/wp-content/uploads/2020/05/Hampi.jpg" alt="b" desc="Hampi"
+                    d="Hampi is a UNESCO World Heritage Site, owing to the ancient temples, forts and other monuments here. Hampi was the capital of the Vijayanagar Empire around 1500 AD, and by some accounts, the second largest city in the world at that time."/>
+                    
+                    <Place src="https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/ladakh-landscape-1549352206-785X440.jpg" alt="b" desc="Ladakh"
+                    d=" Set amidst the epic Himalayas, Ladakh is a rustic and heavenly beautiful travel destination. The rugged valleys and mountains, winding roads coupled with the vibrant cultural life maintain the exuberance and charm of this region. "/>
+                    
+                    <Place src="https://www.worldatlas.com/r/w1200/upload/e5/0e/5f/shutterstock-122322643.jpg" alt="b" desc="Mysore"
+                    d="The city with the majestic Mysore Palace, the royal mansions, public buildings, gardens, water bodies and planned markets exhibit an indelible impression of the vision of the Maharajas, their Dewans and other talented luminaries on the City Municipality as early as 1862."/>
+                    
+                </div>,document.querySelector("#con")
+            );
+                
+            
+    </script>
+    </body>
+</html>

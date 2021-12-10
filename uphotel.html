@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <style>
+        html {
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed;
+
+            background-size: cover;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(70, 233, 233, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+        }
+
+        .logo {
+            width: 30%;
+            float: left;
+            line-height: 100px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 30px;
+            font-family: bignoodletitling;
+            color: #292525;
+            letter-spacing: 5px;
+
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #3d3333;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .content {
+            position: relative;
+            width: 280px;
+            height: 210px;
+            border-radius: 50;
+            padding-top: 180px;
+            /*padding-left: 150px;*/
+        }
+
+        .images {
+            opacity: 1;
+            display: block;
+            width: 350px;
+            height: 300px;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border: 5px solid #555;
+            border-color: #89d2e0;
+        }
+
+        .overlay {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            /*
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)*/
+        }
+
+        .content:hover .images {
+            opacity: 0.3;
+        }
+
+        .content:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #00eb9c;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #details {
+            background-color: #0fabff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #price {
+            background-color: #a8e1ff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .column {
+            display: inline block;
+            padding: 0.5em;
+            display: block;
+            /*width: calc(33.333% - 0.5em);*/
+            width: "280";
+            height: "210";
+        }
+
+        .bookbutton {
+            font-size: 14px;
+            background-color: #a0c800;
+            padding: 12px;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <div id="content"></div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="main">NAMASTE INDIA</a>
+        </div>
+        <nav>
+            <a href="places">PLACES</a>
+            <a href="cities">HOTEL BOOKING</a>
+            <a href="packages">TOUR PACKAGES</a>
+            <a href="contact">CONTACT</a>
+        </nav>
+    </div>
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            render() {
+                {
+                    var letterStyle = {
+                        color: "white",
+                        display: "inline-block",
+                        fontFamily: "bignoodletitling",
+
+                        //backgroundColor: "rgba(70, 233, 233, 0.8)",
+
+                        fontSize: 25,
+                        toppadding: 100,
+                        position: 'absolute',
+                        top: 50,
+                        left: 600,
+                        //marginbottom: 30,
+                        textAlign: "center",
+
+
+
+                    }
+                    var openInNewTab = (url) => {
+                        const newWindow = window.open(url, '_self', 'noopener,noreferrer')
+                        if (newWindow) newWindow.opener = null
+                    }
+
+
+                    return (
+                        <div >
+                            <div>
+                                <div style={letterStyle}>
+                                    <h2><center>Hotel-Uttar Pradesh</center></h2>
+                                </div>
+                                <div class="container">
+                                    <div class="content">
+                                        <img src="https://gos3.ibcdn.com/2961628ad61c11e99c260242ac110003.jpg" alt="SUGAR STARS" class='images' ></img>
+                                        <div class='overlay'>
+                                            <div class="text">Sugar Stars Inn</div>
+                                            <div id="details">
+                                                Set in Varanasi, within 2.5 km of Godowlia and 3.1 km of Dasaswamedh Ghat,
+                                                Sugar Stars Inn offers accommodation with a shared lounge and free WiFi throughout the property as well as free private...
+                                                Breakfast is not to be served in Rooms as clients do dirty the rooms and invite cockroaches.
+                                                Also fruits and cereals must be served during Breakfast.
+                                            </div>
+                                            <div id="price">Price from<b> Rs:1,800/-</b>per night</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <img src="https://www.oberoihotels.com/-/media/oberoi-hotels/website-images/the-oberoi-amarvilas-agra/experiences/detail/dine-under-the-stars.jpg" alt="The Oberoi Amarvilas" class='images' ></img>
+                                        <div class='overlay'>
+                                            <div class="text">The Oberoi Amarvilas</div>
+                                            <div id="details">
+                                                Just 600 metres from the Taj Mahal,
+                                                The Oberoi Amarvilas Agra boasts luxurious 5-star accommodation with a flat-screen TV.
+                                                This property houses 4 dining options and provides free parking.
+                                                Hospitality of all staff. Clean and comfortable facilities.
+                                            </div>
+                                            <div id="price">Price from<b> Rs:24,700/-</b>per night</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div align="center">
+                                    <button class="bookbutton" onClick={() => openInNewTab('registration')}>BOOK NOW</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    );
+                }
+            }
+        }
+        ReactDOM.render(
+            <MyComponent />, document.querySelector('#container')
+        )
+        //class content extends React.Component
+    </script>
+
+
+</body>
+
+</html>

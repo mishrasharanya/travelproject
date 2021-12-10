@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta charset="utf-8">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <style>
+        html {
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed;
+
+            background-size: cover;
+        }
+        .banner h5{
+               
+               font-size:50px;
+               font-family:bignoodletitling;
+               color:white;
+               position:fixed;
+
+           }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(70, 233, 233, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+        }
+
+        .logo {
+            width: 30%;
+            float: left;
+            line-height: 100px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 30px;
+            font-family: bignoodletitling;
+            color: #292525;
+            letter-spacing: 5px;
+
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #3d3333;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .content {
+            position: relative;
+            width: 280px;
+            height: 210px;
+            border-radius: 50;
+            padding-top: 180px;
+            /*padding-left: 150px;*/
+        }
+
+        .images {
+            opacity: 1;
+            display: block;
+            width: 350px;
+            height: 300px;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border: 5px solid #555;
+            border-color: #89d2e0;
+        }
+
+        .overlay {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            /*
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)*/
+        }
+
+        .content:hover .images {
+            opacity: 0.3;
+        }
+
+        .content:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #00eb9c;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #details {
+            background-color: #0fabff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #price {
+            background-color: #a8e1ff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .column {
+            display: inline block;
+            padding: 0.5em;
+            display: block;
+            /*width: calc(33.333% - 0.5em);*/
+            width: "280";
+            height: "210";
+        }
+
+        .bookbutton {
+            font-size: 14px;
+            background-color: #a0c800;
+            padding: 12px;
+            position: absolute;
+            bottom: 20px;
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            border-radius: 3px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container"></div>
+    <div id="content"></div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="#">NAMASTE INDIA</a>
+        </div>
+        <nav>
+            <a href="#home">PLACES</a>
+            <a href="#hotel">HOTEL BOOKING</a>
+            <a href="#packages">TOUR PACKAGES</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </div>
+    <script type="text/babel">
+        class MyComponent extends React.Component {
+            render() {
+                {
+                    var letterStyle = {
+                        color: "rgba(103, 2, 60 , 0.8)",
+                        display: "inline-block",
+                        fontFamily: "Algerian",
+
+                        //backgroundColor: "rgba(70, 233, 233, 0.8)",
+
+                        fontSize: 25,
+                        toppadding: 100,
+                        position: 'absolute',
+                        top: 50,
+                        left: 600,
+                        //marginbottom: 30,
+                        textAlign: "center",
+
+
+
+                    }
+                    var openInNewTab = (url) => {
+                        const newWindow = window.open(url, '_self', 'noopener,noreferrer')
+                        if (newWindow) newWindow.opener = null
+                    }
+
+                    return (
+                        <div >
+                            <div>
+                                <center><div className="banner">
+                                    <h5>MEGHALAYA</h5>
+                                </div></center>
+                                <div class="container">
+                                    <div class="content">
+                                        <img src="https://woodlandhillstay.co.in/wp-content/uploads/2018/09/20180821_211912.jpg" alt="HOTEL WOODLAND" class='images' ></img>
+                                        <div class='overlay'>
+                                            <div class="text">Hotel Woodland Hill Stay</div>
+                                            <div id="details">
+                                                Situated in Shillong, Woodland Hill Stay features a terrace and a shared lounge.
+                                                All rooms feature a flat-screen TV with satellite channels and a private bathroom.
+                                                Spacious room ideal for a family of 4. Fabulous service, welcome by Peter.
+                                            </div>
+                                            <div id="price">Price from<b> Rs:3,022/-</b>per night</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="content">
+                                        <img src="https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202110291246163607-4cafef10387911ecb76b0a58a9feac02.jpg?&output-quality=75&downsize=910:612&crop=910:612;57,0&output-format=jpg" alt="TREEBO TREND OMEGA" class='images' ></img>
+                                        <div class='overlay'>
+                                            <div class="text">Treebo Trend Omega Stay Inn</div>
+                                            <div id="details">
+                                                Treebo Trend Omega Stay Inn offers rooms in Shillong.
+                                                Among the facilities at this property are a 24-hour front desk and room service, along with free WiFi throughout the property.
+                                                The hospitality shown from the staff. The cleanliness of the reserved rooms.
+                                            </div>
+                                            <div id="price">Price from<b> Rs:1,800/-</b>per night</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div align="center">
+                                    <button class="bookbutton" onClick={() => openInNewTab('registration')}>BOOK NOW</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    );
+                }
+            }
+        }
+        ReactDOM.render(
+            <MyComponent />, document.querySelector('#container')
+        )
+        //class content extends React.Component
+    </script>
+
+
+</body>
+
+</html>

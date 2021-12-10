@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <style>
+         html {
+            background: url('https://img.theculturetrip.com/2460x1000/wp-content/uploads/2019/04/ia_0640_chennai_ranga-krishnamani.jpg') no-repeat center center fixed;
+
+            background-size: cover;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: rgba(70, 233, 233, 0.8);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 10%;
+        }
+
+        .logo {
+            width: 30%;
+            float: left;
+            line-height: 100px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            font-size: 30px;
+            font-family: bignoodletitling;
+            color: #292525;
+            letter-spacing: 5px;
+
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: #3d3333;
+            text-align: center;
+            padding: 40px 20px;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        nav a:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .content {
+            position: relative;
+            width: 280px;
+            height: 210px;
+            border-radius: 50;
+            padding-top: 180px;
+            /*padding-left: 150px;*/
+        }
+
+        .images {
+            opacity: 1;
+            display: block;
+            width: 350px;
+            height: 300px;
+            transition: .5s ease;
+            backface-visibility: hidden;
+            border: 5px solid #555;
+            border-color: #89d2e0;
+        }
+
+        .overlay {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            /*
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%)*/
+        }
+
+        .content:hover .images {
+            opacity: 0.3;
+        }
+
+        .content:hover .overlay {
+            opacity: 1;
+        }
+
+        .text {
+            background-color: #00eb9c;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #details {
+            background-color: #0fabff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        #price {
+            background-color: #a8e1ff;
+            color: rgb(0, 0, 0);
+            font-size: 16px;
+            padding: 10px 24px;
+            font-family: "Stencil";
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .column {
+            display: inline block;
+            padding: 0.5em;
+            display: block;
+            /*width: calc(33.333% - 0.5em);*/
+            width: "280";
+            height: "210";
+        }
+
+        .bookbutton {
+            font-size: 14px;
+            background-color: #a0c800;
+            padding: 12px;
+            position: relative;
+           
+            text-align: center;
+            color: white;
+            font-family: sans-serif;
+            border-radius: 3px;
+        }
+    </style>
+    <script>
+        var newfoo = {
+            "Goa": {
+                "Vivanta": ["No tour Package available"],
+                "The Crescent": ["No tour packages available"],
+            },
+
+            "Himachal pradesh": {
+                "Shivalaya Retreat,Manali": ["Tour package 2"],
+                "Montain Blue Resort,Manali": ["Tour package 2"],
+            },
+
+            "Jammu and Kashmir": {
+                "Sambhava Inn,Leh": ["No tour Package available"],
+                "Youthok Guest House,Leh": ["No tour packages available"],
+            },
+
+            "Karnataka": {
+                "ITC Windsor,Bengaluru": ["Tour package 3"],
+                "The Leela Palace ": ["Tour package 3"],
+            },
+
+            "Meghalaya": {
+                "Hotel WoodLand Hill Stay": ["Tour Package 1"],
+                "Youthok Guest House,Leh": ["Tour Package 1"],
+            },
+
+            "Uttar Pradesh": {
+                "Sugar Stars Inn": ["No tour Package available"],
+                "The Oberoi Amarvilas": ["No tour packages available"],
+            },
+
+        }
+        window.onload = function () {
+            var placeSel = document.getElementById("place");
+            var hotelSel = document.getElementById("hotel");
+            var tourSel = document.getElementById("Tour");
+            for (var x in newfoo) {
+                placeSel.options[placeSel.options.length] = new Option(x, x);
+            }
+            placeSel.onchange = function () {
+                hotelSel.length = 1;
+                tourSel.length = 1;
+
+                for (var y in newfoo[this.value]) {
+                    hotelSel.options[hotelSel.options.length] = new Option(y, y);
+                }
+            }
+            hotelSel.onchange = function () {
+                tourSel.length = 1;
+                var z = newfoo[placeSel.value][this.value];
+                for (var i = 0; i < z.length; i++) {
+                    tourSel.options[tourSel.options.length] = new Option(z[i], z[i]);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!--<body style="background-image: url('bg5.png');">-->
+    <!--<body style="background-color:black; color: yellow ;color: antiquewhite;";>-->
+        <div id="container"></div>
+    <div id="content"></div>
+    <div class="navbar">
+        <div class="logo">
+            <a href="main">NAMASTE INDIA</a>
+        </div>
+        <nav>
+            <a href="places">PLACES</a>
+            <a href="cities">HOTEL BOOKING</a>
+            <a href="packages">TOUR PACKAGES</a>
+            <a href="contact">CONTACT</a>
+        </nav>
+    </div> 
+    
+    
+    <script type="text/babel">
+
+        class SignUpForm extends React.Component {
+            //constructor:creating obj and initialising it
+            constructor(props) {
+                super(props);
+                this.state = {
+                    value1: " ",
+                    value2: " ",
+                    value3: " ",
+                    value4: " ",
+                    value5: " ",
+                    value6: " ",
+                    place: " ",
+                    hotel: " ",
+                    tour: " ",
+                }
+                this.handleChange = this.handleChange.bind(this)
+                //this.handleSubmit = this.handleSubmit.bind(this)
+
+            }
+            //outside construcrtor is methods are defined
+            /*
+            handleSubmit(event) {
+                alert("Name submitted is:" + this.state.value1)
+            }
+            <center><strong><button class="bookbutton" type="submit" value="Submit">Submit</button></strong></center>*/
+            handleChange(event) {
+                this.setState({ [event.target.name]: event.target.value });
+            }
+
+            render() {
+                var letterStyle = {
+                    color: "black",
+                    display: "inline-block",
+                    fontFamily: "monospace",
+                    // rgba(14, 121, 62, 0.185)
+                    backgroundColor: "rgba(70, 233, 233, 0.8)",
+                    // opacity=0.6,
+                    fontSize: 29,
+                    padding: 20,
+                    margin: 10,
+                    textAlign: "center",
+                    borderStyle: "solid"
+                };
+                return (
+                    
+                    <div >
+                        <br/><br/>  <br/>  <br/>  <br/>    
+                        <center><div style={letterStyle}>
+                            <div style={letterStyle}>
+                                <h2>REGISTRATION</h2>
+                            </div>
+                            <form action="/regis" method="post">
+                                <center><strong><label>Full Name:</label></strong>
+                                    <input type="text" name="value1" placeholder="Enter Name" value={this.state.value1} onChange={this.handleChange} /></center>
+                                <br />
+                                <center><strong><label>Email Address :</label></strong>
+                                    <input type="email" name="value2" placeholder="Enter Email" value={this.state.value2} onChange={this.handleChange} /></center>
+                                <br />
+                                <center><strong><label>Number of people :</label></strong>
+                                    <input type="text" name="value3" placeholder="Enter here" value={this.state.value3} onChange={this.handleChange} /></center>
+                                <br />
+                                <center><strong><label>Number of rooms:</label></strong>
+                                    <input type="text" name="value4" placeholder="Enter here" value={this.state.value4} onChange={this.handleChange} /></center>
+                                <br />
+                                <center><strong><label>Start date:</label></strong>
+                                    <input type="date" name="value5" value={this.state.value5} onChange={this.handleChange} /></center>
+                                <br />
+                                <center><strong><label>End date:</label></strong>
+                                    <input type="date" name="value6" value={this.state.value6} onChange={this.handleChange} /></center>
+                                <br />
+                                <strong>place:</strong> <select name="place" id="place">
+                                    <option value="" selected="selected">Select place:</option>
+                                </select>
+                                <br /><br />
+                                <strong>hotel:</strong><select name="hotel" id="hotel">
+                                    <option value="" selected="selected" >Pleae select place first</option>
+                                </select>
+                                <br /><br />
+                                <strong>tour package:</strong><select name="tour" id="Tour">
+                                    <option value="" selected="selected">Please select hotel first</option>
+                                </select>
+                                <br /><br />
+
+
+                                <input type="submit" id="submitDetails" name="submitDetails" value="Submit" class="bookbutton" /> <br />
+                            </form>
+                        </div></center>
+                    </div>
+
+
+                );
+            }
+        }
+        ReactDOM.render(
+            <SignUpForm />, document.querySelector('#container')
+        )
+    </script>
+</body>
+
+</html>
